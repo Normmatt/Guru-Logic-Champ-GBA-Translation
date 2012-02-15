@@ -226,177 +226,266 @@ EXPLANATION.<pg1><pg2><clr>
 //POINTER #14 @ $288 - STRING #14 @ $7BA
 
 #WRITE(GBA,$288)
-こんかいは<br>
-"あな"と<br>
-"ゴムのかべ"<pg1><pg2><clr>
-について<br>
-せつめいするです<pg1><pg2><clr>
-よく きいて<br>
-くれたまえ<pg1><pg2><clr>
-まずは ここ<pg1><pg2><clr>
+// こんかいは<br>
+// "あな"と<br>
+// "ゴムのかべ"<pg1><pg2><clr>
+// について<br>
+// せつめいするです<pg1><pg2><clr>
+// よく きいて<br>
+// くれたまえ<pg1><pg2><clr>
+// まずは ここ<pg1><pg2><clr>
+// <end>
+
+THIS TIME I'LL<br>
+EXPLAIN ABOUT<pg1><pg2><clr>
+"HOLES" AND<br>
+"RUBBER WALLS"<pg1><pg2><clr>
+LISTEN UP<br>
+FIRST, HERE<pg1><pg2><clr>
 <end>
 
 
 //POINTER #15 @ $28C - STRING #15 @ $83E
 
 #WRITE(GBA,$28C)
-ここには<br>
-あなが あいて<br>
-いるのです<pg1><pg2><clr>
-だからこのうえには<br>
-ブロックが<br>
-おけないのです<pg1><pg2><clr>
-<end>
+// ここには<br>
+// あなが あいて<br>
+// いるのです<pg1><pg2><clr>
+// だからこのうえには<br>
+// ブロックが<br>
+// おけないのです<pg1><pg2><clr>
+// <end>
 
+THERE'S A HOLE<br>
+HERE SO YOU CAN'T<br>
+PLACE A BLOCK<pg1><pg2><clr>
+<end>
 
 //POINTER #16 @ $290 - STRING #16 @ $8A4
 
 #WRITE(GBA,$290)
-でも、<br>
-あなの うえは<pg1><pg2><clr>
-ブロックを<br>
-とおすことが<br>
-できるのです<pg1><pg2><clr>
-<end>
+// でも、<br>
+// あなの うえは<pg1><pg2><clr>
+// ブロックを<br>
+// とおすことが<br>
+// できるのです<pg1><pg2><clr>
+// <end>
 
+BUT YOU CAN PASS<br>
+A BLOCK OVER THE<br>
+HOLE<pg1><pg2><clr>
+<end>
 
 //POINTER #17 @ $294 - STRING #17 @ $8F4
 
 #WRITE(GBA,$294)
-つぎは<br>
-この かべ<pg1><pg2><clr>
-<end>
+// つぎは<br>
+// この かべ<pg1><pg2><clr>
+// <end>
 
+NEXT IS THIS WALL<pg1><pg2><clr>
+<end>
 
 //POINTER #18 @ $298 - STRING #18 @ $914
 
 #WRITE(GBA,$298)
-このかべは<br>
-ゴムで できている<br>
-のです<pg1><pg2><clr>
-だから ブロックを<br>
-はねかえして<br>
-しまうのです<pg1><pg2><clr>
-<end>
+// このかべは<br>
+// ゴムで できている<br>
+// のです<pg1><pg2><clr>
+// だから ブロックを<br>
+// はねかえして<br>
+// しまうのです<pg1><pg2><clr>
+// <end>
 
+THIS WALL IS MADE<br>
+OF RUBBER SO<br>
+BLOCKS WILL END<pg1><pg2><clr>
+UP BOUNCING OFF<br>
+IT<pg1><pg2><clr>
+<end>
 
 //POINTER #19 @ $29C - STRING #19 @ $97C
 
 #WRITE(GBA,$29C)
-どうですか?<pg1><pg2><br>
-わかりましたか?<pg1><pg2><clr>
-まあ、<br>
-やってみれば<br>
-わかるでしょう<pg1><pg2><clr>
-それでは、<br>
-ごきげんよう<pg1><pg2><clr>
-<end>
+// どうですか?<pg1><pg2><br>
+// わかりましたか?<pg1><pg2><clr>
+// まあ、<br>
+// やってみれば<br>
+// わかるでしょう<pg1><pg2><clr>
+// それでは、<br>
+// ごきげんよう<pg1><pg2><clr>
+// <end>
 
+HOW DO YOU FEEL?<pg1><pg2><br>
+DID YOU GET ALL<br>
+THAT?<pg1><pg2><clr>
+ONCE YOU TRY IT<br>
+YOU'LL UNDERSTAND<pg1><pg2><clr>
+ANYWAY,<br>
+GOOD LUCK<pg1><pg2><clr>
+<end>
 
 //POINTER #20 @ $2A0 - STRING #20 @ $6F0
 
 #WRITE(GBA,$2A0)
-やあ、<br>
-またあいましたな<pg1><pg2><clr>
-もう ずいぶん<br>
-なれてきたのでは?<pg1><pg2><clr>
-こんかいは<br>
-"あな"と<br>
-"ゴムのかべ"<pg1><pg2><clr>
-について<br>
-せつめいするです<pg1><pg2><clr>
-よく きいて<br>
-くれたまえ<pg1><pg2><clr>
-まずは ここ<pg1><pg2><clr>
-<end>
+// やあ、<br>
+// またあいましたな<pg1><pg2><clr>
+// もう ずいぶん<br>
+// なれてきたのでは?<pg1><pg2><clr>
+// こんかいは<br>
+// "あな"と<br>
+// "ゴムのかべ"<pg1><pg2><clr>
+// について<br>
+// せつめいするです<pg1><pg2><clr>
+// よく きいて<br>
+// くれたまえ<pg1><pg2><clr>
+// まずは ここ<pg1><pg2><clr>
+// <end>
 
+HI THERE!<br>
+NICE TO SEE YOU<br>
+AGAIN!<pg1><pg2><clr>
+SO I GUESS YOU'VE<br>
+GOTTEN PRETTY GOOD<br>
+BY NOW?<pg1><pg2><clr>
+THIS TIME I'LL<br>
+EXPLAIN ABOUT<pg1><pg2><clr>
+"HOLES" AND<br>
+"RUBBER WALLS"<pg1><pg2><clr>
+LISTEN UP<br>
+FIRST, HERE<pg1><pg2><clr>
+<end>
 
 //POINTER #21 @ $2A4 - STRING #21 @ $B00
 
 #WRITE(GBA,$2A4)
-それでは さいごに<br>
-"おせるかべ"<br>
-について<pg1><pg2><clr>
-せつめいして<br>
-おきましょうかな<pg1><pg2><clr>
-これをみるで<br>
-あります<pg1><pg2><clr>
-<end>
+// それでは さいごに<br>
+// "おせるかべ"<br>
+// について<pg1><pg2><clr>
+// せつめいして<br>
+// おきましょうかな<pg1><pg2><clr>
+// これをみるで<br>
+// あります<pg1><pg2><clr>
+// <end>
 
+NOW, LASTLY I<br>
+GUESS I SHOULD<br>
+TELL YOU ABOUT<pg1><pg2><clr>
+"PUSHABLE WALLS"<br>
+TAKE A LOOK AT<br>
+THIS<pg1><pg2><clr>
+<end>
 
 //POINTER #22 @ $2A8 - STRING #22 @ $B7A
 
 #WRITE(GBA,$2A8)
-これが<br>
-おせるかべ<br>
-であります<pg1><pg2><clr>
-ブロックを<br>
-ぶつけると<br>
-おせるのです<pg1><pg2><clr>
-<end>
+// これが<br>
+// おせるかべ<br>
+// であります<pg1><pg2><clr>
+// ブロックを<br>
+// ぶつけると<br>
+// おせるのです<pg1><pg2><clr>
+// <end>
 
+THIS IS A<br>
+PUSHABLE WALL.<pg1><pg2><clr>
+YOU CAN MOVE IT<br>
+IF YOU FLING A<br>
+BLOCK AT IT.<pg1><pg2><clr>
+<end>
 
 //POINTER #23 @ $2AC - STRING #23 @ $BD0
 
 #WRITE(GBA,$2AC)
-おせるかべが<br>
-つながって<br>
-いるときに<pg1><pg2><clr>
-ブロックを<br>
-ぶつけると<pg1><pg2><clr>
-つながっている<br>
-さいごの かべが<br>
-うごくのです<pg1><pg2><clr>
-<end>
+// おせるかべが<br>
+// つながって<br>
+// いるときに<pg1><pg2><clr>
+// ブロックを<br>
+// ぶつけると<pg1><pg2><clr>
+// つながっている<br>
+// さいごの かべが<br>
+// うごくのです<pg1><pg2><clr>
+// <end>
 
+WHEN A PUSHABLE<br>
+WALL IS CONNECTED<br>
+AND YOU TOSS A<pg1><pg2><clr>
+BLOCK AT IT THE<br>
+LAST CONNECTED<br>
+WALL WILL MOVE<pg1><pg2><clr>
+<end>
 
 //POINTER #24 @ $2B0 - STRING #24 @ $C52
 
 #WRITE(GBA,$2B0)
-おせるかべが<br>
-それいじょう<br>
-うごけないときに<pg1><pg2><clr>
-ブロックを<br>
-ぶつけると、<pg1><pg2><clr>
-ぶつけたブロックが<br>
-はねかえって<br>
-くるのです<pg1><pg2><clr>
-<end>
+// おせるかべが<br>
+// それいじょう<br>
+// うごけないときに<pg1><pg2><clr>
+// ブロックを<br>
+// ぶつけると、<pg1><pg2><clr>
+// ぶつけたブロックが<br>
+// はねかえって<br>
+// くるのです<pg1><pg2><clr>
+// <end>
 
+IF YOU THROW A<br>
+BLOCK AT A<br>
+PUSHABLE WALL<pg1><pg2><clr>
+THAT CAN'T MOVE<br>
+ANY FURTHER<br>
+THE BLOCK WILL<pg1><pg2><clr>
+BOUNCE OFF<pg1><pg2><clr>
+<end>
 
 //POINTER #25 @ $2B4 - STRING #25 @ $CDC
 
 #WRITE(GBA,$2B4)
-また、<br>
-このように<pg1><pg2><clr>
-おせるかべを<br>
-すみに<br>
-いれてしまうと<pg1><pg2><clr>
-<end>
+// また、<br>
+// このように<pg1><pg2><clr>
+// おせるかべを<br>
+// すみに<br>
+// いれてしまうと<pg1><pg2><clr>
+// <end>
 
+ALSO,<br>
+IF YOU END UP<pg1><pg2><clr>
+PUSHING A WALL<br>
+INTO A CORNER<br>
+THIS WAY<pg1><pg2><clr>
+<end>
 
 //POINTER #26 @ $2B8 - STRING #26 @ $D26
 
 #WRITE(GBA,$2B8)
-それいじょう<br>
-どこにも<br>
-おせないので、<pg1><pg2><clr>
-ちゅういを<br>
-するであります<pg1><pg2><clr>
-<end>
+// それいじょう<br>
+// どこにも<br>
+// おせないので、<pg1><pg2><clr>
+// ちゅういを<br>
+// するであります<pg1><pg2><clr>
+// <end>
 
+YOU WON'T BE ABLE<br>
+TO MOVE IT ANYMORE<br>
+SO BE CAREFUL<pg1><pg2><clr>
+<end>
 
 //POINTER #27 @ $2BC - STRING #27 @ $D7A
 
 #WRITE(GBA,$2BC)
-いじょう、<br>
-おせるかべの<br>
-せつめいでした<pg1><pg2><clr>
-それでは<br>
-けんとうを<br>
-いのるであります<pg1><pg2><clr>
-<end>
+// いじょう、<br>
+// おせるかべの<br>
+// せつめいでした<pg1><pg2><clr>
+// それでは<br>
+// けんとうを<br>
+// いのるであります<pg1><pg2><clr>
+// <end>
 
+THAT'S ALL THERE<br>
+IS TO SAY ABOUT<br>
+PUSHABLE WALLS<pg1><pg2><clr>
+WELL THEN,<br>
+BEST OF LUCK<pg1><pg2><clr>
+<end>
 
 //POINTER #28 @ $2C0 - STRING #28 @ $9F4
 

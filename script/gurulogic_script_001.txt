@@ -25,7 +25,7 @@
 // ÉQ-ÉÄÇÃÇπÇ¬ÇﬂÇ¢Ç<br>
 // ÇµÇ‹ÇµÇÂÇ§Ç©Ç»<pg1><pg2><clr>
 // <end>
-WELL THEN? I<br>
+WELL THENÅc I<br>
 GUESS I SHOULD<br>
 EXPLAIN HOW THE<pg1><pg2><clr>
 GAME IS PLAYED.<pg1><pg2><clr>
@@ -130,7 +130,7 @@ BLOCKS. SORRY.<pg1><pg2><clr>
 // <end>
 KEEP PUTTING<br>
 BLOCKS IN THE<br>
-RIGHT PLACES?<pg1><pg2><clr>
+RIGHT PLACESÅc<pg1><pg2><clr>
 <end>
 
 //POINTER #9 @ $274 - STRING #9 @ $564

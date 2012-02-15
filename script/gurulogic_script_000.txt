@@ -1,0 +1,60 @@
+// Define a TABLE
+#VAR(Table, TABLE)
+#VAR(engTable, TABLE)
+
+// Load and activate the table
+#ADDTBL("script/guru2.tbl", Table)
+#ADDTBL("script/guru.tbl", engTable)
+#ACTIVETBL(Table)
+
+// Setup GBA pointers and Pointer Table
+#VAR(GBA, CUSTOMPOINTER)
+// Create our pointer type
+#CREATEPTR(GBA, "LINEAR", $-08000000, 32)
+
+#JMP($550000)
+
+//GAME NAME:		Guru Guru Logic Champ (GBA)
+
+//BLOCK #000 NAME:		Wakase's Lab (POINTER)
+
+//POINTER #0 @ $DDC - STRING #0 @ $E04
+
+#WRITE(GBA,$DDC)
+<clr>  なにか ようで ありますか?<end>
+//POINTER #1 @ $DE0 - STRING #1 @ $E2E
+
+#WRITE(GBA,$DE0)
+<clr> ゲ-ムのせつめいを おこないます<end>
+//POINTER #2 @ $DE4 - STRING #2 @ $E5A
+
+#WRITE(GBA,$DE4)
+<clr>いままでみた デモが みられるでしょう<end>
+//POINTER #3 @ $DE8 - STRING #3 @ $E8A
+
+#WRITE(GBA,$DE8)
+<clr>じょうけんを みたせば えらべるです<end>
+//POINTER #4 @ $DEC - STRING #4 @ $EB8
+
+#WRITE(GBA,$DEC)
+<clr>チャンプのようじんぼうが あそべます!<end>
+//POINTER #5 @ $DF0 - STRING #5 @ $EE8
+
+#WRITE(GBA,$DF0)
+<clr> バケツリレ-が あそべます!<end>
+//POINTER #6 @ $DF4 - STRING #6 @ $F10
+
+#WRITE(GBA,$DF4)
+<clr> そうさほうほうを おしえましょう<end>
+//POINTER #7 @ $DF8 - STRING #7 @ $F3C
+
+#WRITE(GBA,$DF8)
+<clr>あなと ゴムのかべを おしえましょう<end>
+//POINTER #8 @ $DFC - STRING #8 @ $F6A
+
+#WRITE(GBA,$DFC)
+<clr>  おせるかべを おしえましょう<end>
+//POINTER #9 @ $E00 - STRING #9 @ $F94
+
+#WRITE(GBA,$E00)
+<clr>   それでは ごきげんよう<end>

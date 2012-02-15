@@ -1,0 +1,421 @@
+// Define a TABLE
+#VAR(Table, TABLE)
+#VAR(engTable, TABLE)
+
+// Load and activate the table
+#ADDTBL("script/guru2.tbl", Table)
+#ADDTBL("script/guru.tbl", engTable)
+#ACTIVETBL(Table)
+
+// Setup GBA pointers and Pointer Table
+#VAR(GBA, CUSTOMPOINTER)
+// Create our pointer type
+#CREATEPTR(GBA, "LINEAR", $-08000000, 32)
+
+#JMP($3F0000)
+
+//GAME NAME:		Guru Guru Logic Champ (GBA)
+
+//BLOCK #001 NAME:		Rules Explanation (POINTER)
+
+//POINTER #0 @ $250 - STRING #0 @ $356
+
+#WRITE(GBA,$250)
+// さて、<br>
+// ゲ-ムのせつめいを<br>
+// しましょうかな<pg1><pg2><clr>
+// <end>
+WELL THEN? I<br>
+GUESS I SHOULD<br>
+EXPLAIN HOW THE<pg1><pg2><clr>
+GAME IS PLAYED.<pg1><pg2><clr>
+<end>
+
+
+//POINTER #1 @ $254 - STRING #1 @ $38E
+
+#WRITE(GBA,$254)
+// "じゅうじキ-"で<br>
+// みぎへ ひだりへ<br>
+// いどうできます<pg1><pg2><clr>
+// <end>
+YOU CAN MOVE<br>
+LEFT OR RIGHT<br>
+WITH THE D-PAD.<pg1><pg2><clr>
+<end>
+
+//POINTER #2 @ $258 - STRING #2 @ $3D0
+
+#WRITE(GBA,$258)
+// "LRボタン"で<br>
+// ぐるぐる<br>
+// まわります<pg1><pg2><clr>
+// <end>
+ROTATE THE<br>
+PUZZLE WITH THE<br>
+L AND R BUTTONS.<pg1><pg2><clr>
+<end>
+
+//POINTER #3 @ $25C - STRING #3 @ $404
+
+#WRITE(GBA,$25C)
+// "Aボタン"で<br>
+// ブロックを<br>
+// はっしゃ!<pg1><pg2><clr>
+// <end>
+LAUNCH BLOCKS<br>
+WITH THE A<br>
+BUTTON!<pg1><pg2><clr>
+<end>
+
+
+//POINTER #4 @ $260 - STRING #4 @ $438
+
+#WRITE(GBA,$260)
+// "Bボタン"で<br>
+// ブロックを<br>
+// すいこみます<pg1><pg2><clr>
+// <end>
+SUCK UP BLOCKS<br>
+WITH THE B<br>
+BUTTON.<pg1><pg2><clr>
+<end>
+
+//POINTER #5 @ $264 - STRING #5 @ $46E
+
+#WRITE(GBA,$264)
+// なにもないところや<br>
+// てまえには<br>
+// うてないのです<pg1><pg2><clr>
+// <end>
+YOU CAN'T FIRE<br>
+AT EMPTY SPACES<br>
+OR RIGHT IN<pg1><pg2><clr>
+FRONT OF<br>
+YOURSELF.<pg1><pg2><clr>
+<end>
+
+
+//POINTER #6 @ $268 - STRING #6 @ $4AA
+
+#WRITE(GBA,$268)
+// ブロックの かずは<br>
+// ステ-ジごとに<br>
+// きまっております<pg1><pg2><clr>
+// <end>
+EACH STAGE HAS A<br>
+FIXED NUMBER OF<br>
+BLOCKS.<pg1><pg2><clr>
+<end>
+
+//POINTER #7 @ $26C - STRING #7 @ $4EC
+
+#WRITE(GBA,$26C)
+// ざんねんながら<br>
+// ブロックがないと<br>
+// うてないのです<pg1><pg2><clr>
+// <end>
+YOU CAN'T SHOOT<br>
+IF THERE ARE NO<br>
+BLOCKS. SORRY.<pg1><pg2><clr>
+<end>
+
+
+//POINTER #8 @ $270 - STRING #8 @ $52A
+
+#WRITE(GBA,$270)
+// せいかいのばしょへ<br>
+// ブロックを<br>
+// おいていき…<pg1><pg2><clr>
+// <end>
+KEEP PUTTING<br>
+BLOCKS IN THE<br>
+RIGHT PLACES?<pg1><pg2><clr>
+<end>
+
+//POINTER #9 @ $274 - STRING #9 @ $564
+
+#WRITE(GBA,$274)
+// ひだりの え と<br>
+// おなじものを<br>
+// つくるのですぞ<pg1><pg2><clr>
+// <end>
+THE GOAL IS TO<br>
+MAKE A PICTURE<br>
+JUST LIKE THE<pg1><pg2><clr>
+ONE ON THE LEFT.<pg1><pg2><clr>
+<end>
+
+//POINTER #10 @ $278 - STRING #10 @ $5A0
+
+#WRITE(GBA,$278)
+// おおっと、<br>
+// いいわすれてました<pg1><pg2><clr>
+// せいかいのばしょに<br>
+// ブロックを おくと<br>
+// あおいろに、<pg1><pg2><clr>
+// まちがいのばしょに<br>
+// ブロックを おくと<br>
+// あかいろに、<pg1><pg2><clr>
+// ブロックのいろが<br>
+// かわるのです<pg1><pg2><clr>
+// <end>
+OOPS! I FORGOT TO<br>
+TELL YOU -<pg1><pg2><clr>
+IF YOU PUT A<br>
+BLOCK IN THE<br>
+RIGHT SPOT<pg1><pg2><clr>
+IT'LL TURN BLUE,<br>
+BUT IF YOU PUT<br>
+ONE IN THE<pg1><pg2><clr>
+WRONG SPOT IT'LL<br>
+TURN RED.<pg1><pg2><clr>
+<end>
+
+//POINTER #11 @ $27C - STRING #11 @ $664
+
+#WRITE(GBA,$27C)
+// しっかり、おぼえて<br>
+// おくのですぞ<pg1><pg2><clr>
+// <end>
+KEEP THAT IN<br>
+MIND.<pg1><pg2><clr>
+<end>
+
+//POINTER #12 @ $280 - STRING #12 @ $692
+
+#WRITE(GBA,$280)
+// いじょうで<br>
+// ゲ-ムせつめいを<br>
+// おわります<pg1><pg2><clr>
+// あとは<br>
+// じっせんで<br>
+// おぼえましょう<pg1><pg2><clr>
+// <end>
+WELL, THAT'S<br>
+MY EXPLANATION.<br>
+THE REST YOU<pg1><pg2><clr>
+SHOULD LEARN BY<br>
+PLAYING FOR REAL.<pg1><pg2><clr>
+<end>
+
+//POINTER #13 @ $284 - STRING #13 @ $2C4
+
+#WRITE(GBA,$284)
+// ついに、そのツボを<br>
+// つかうときが<br>
+// きましたな<pg1><pg2><clr>
+// よいですかな?<br>
+// <pg1><pg2>これから はなす<br>
+// せつめいを<pg1><pg2><clr>
+// よ～く<br>
+// きいておくの<br>
+// ですぞ<pg1><pg2><clr>
+// <end>
+NOW IT'S FINALLY<br>
+TIME TO USE THAT<br>
+POT!<pg1><pg2><clr>
+ARE YOU READY?<br>
+<pg1><pg2>LISTEN VERY<br>
+CAREFULLY TO<br><pg1><pg2><clr>
+THIS NEXT<br>
+EXPLANATION.<pg1><pg2><clr>
+<end>
+
+
+//POINTER #14 @ $288 - STRING #14 @ $7BA
+
+#WRITE(GBA,$288)
+こんかいは<br>
+"あな"と<br>
+"ゴムのかべ"<pg1><pg2><clr>
+について<br>
+せつめいするです<pg1><pg2><clr>
+よく きいて<br>
+くれたまえ<pg1><pg2><clr>
+まずは ここ<pg1><pg2><clr>
+<end>
+
+
+//POINTER #15 @ $28C - STRING #15 @ $83E
+
+#WRITE(GBA,$28C)
+ここには<br>
+あなが あいて<br>
+いるのです<pg1><pg2><clr>
+だからこのうえには<br>
+ブロックが<br>
+おけないのです<pg1><pg2><clr>
+<end>
+
+
+//POINTER #16 @ $290 - STRING #16 @ $8A4
+
+#WRITE(GBA,$290)
+でも、<br>
+あなの うえは<pg1><pg2><clr>
+ブロックを<br>
+とおすことが<br>
+できるのです<pg1><pg2><clr>
+<end>
+
+
+//POINTER #17 @ $294 - STRING #17 @ $8F4
+
+#WRITE(GBA,$294)
+つぎは<br>
+この かべ<pg1><pg2><clr>
+<end>
+
+
+//POINTER #18 @ $298 - STRING #18 @ $914
+
+#WRITE(GBA,$298)
+このかべは<br>
+ゴムで できている<br>
+のです<pg1><pg2><clr>
+だから ブロックを<br>
+はねかえして<br>
+しまうのです<pg1><pg2><clr>
+<end>
+
+
+//POINTER #19 @ $29C - STRING #19 @ $97C
+
+#WRITE(GBA,$29C)
+どうですか?<pg1><pg2><br>
+わかりましたか?<pg1><pg2><clr>
+まあ、<br>
+やってみれば<br>
+わかるでしょう<pg1><pg2><clr>
+それでは、<br>
+ごきげんよう<pg1><pg2><clr>
+<end>
+
+
+//POINTER #20 @ $2A0 - STRING #20 @ $6F0
+
+#WRITE(GBA,$2A0)
+やあ、<br>
+またあいましたな<pg1><pg2><clr>
+もう ずいぶん<br>
+なれてきたのでは?<pg1><pg2><clr>
+こんかいは<br>
+"あな"と<br>
+"ゴムのかべ"<pg1><pg2><clr>
+について<br>
+せつめいするです<pg1><pg2><clr>
+よく きいて<br>
+くれたまえ<pg1><pg2><clr>
+まずは ここ<pg1><pg2><clr>
+<end>
+
+
+//POINTER #21 @ $2A4 - STRING #21 @ $B00
+
+#WRITE(GBA,$2A4)
+それでは さいごに<br>
+"おせるかべ"<br>
+について<pg1><pg2><clr>
+せつめいして<br>
+おきましょうかな<pg1><pg2><clr>
+これをみるで<br>
+あります<pg1><pg2><clr>
+<end>
+
+
+//POINTER #22 @ $2A8 - STRING #22 @ $B7A
+
+#WRITE(GBA,$2A8)
+これが<br>
+おせるかべ<br>
+であります<pg1><pg2><clr>
+ブロックを<br>
+ぶつけると<br>
+おせるのです<pg1><pg2><clr>
+<end>
+
+
+//POINTER #23 @ $2AC - STRING #23 @ $BD0
+
+#WRITE(GBA,$2AC)
+おせるかべが<br>
+つながって<br>
+いるときに<pg1><pg2><clr>
+ブロックを<br>
+ぶつけると<pg1><pg2><clr>
+つながっている<br>
+さいごの かべが<br>
+うごくのです<pg1><pg2><clr>
+<end>
+
+
+//POINTER #24 @ $2B0 - STRING #24 @ $C52
+
+#WRITE(GBA,$2B0)
+おせるかべが<br>
+それいじょう<br>
+うごけないときに<pg1><pg2><clr>
+ブロックを<br>
+ぶつけると、<pg1><pg2><clr>
+ぶつけたブロックが<br>
+はねかえって<br>
+くるのです<pg1><pg2><clr>
+<end>
+
+
+//POINTER #25 @ $2B4 - STRING #25 @ $CDC
+
+#WRITE(GBA,$2B4)
+また、<br>
+このように<pg1><pg2><clr>
+おせるかべを<br>
+すみに<br>
+いれてしまうと<pg1><pg2><clr>
+<end>
+
+
+//POINTER #26 @ $2B8 - STRING #26 @ $D26
+
+#WRITE(GBA,$2B8)
+それいじょう<br>
+どこにも<br>
+おせないので、<pg1><pg2><clr>
+ちゅういを<br>
+するであります<pg1><pg2><clr>
+<end>
+
+
+//POINTER #27 @ $2BC - STRING #27 @ $D7A
+
+#WRITE(GBA,$2BC)
+いじょう、<br>
+おせるかべの<br>
+せつめいでした<pg1><pg2><clr>
+それでは<br>
+けんとうを<br>
+いのるであります<pg1><pg2><clr>
+<end>
+
+
+//POINTER #28 @ $2C0 - STRING #28 @ $9F4
+
+#WRITE(GBA,$2C0)
+ついに ここまで<br>
+きましたか<pg1><pg2><clr>
+さすが わたしが<br>
+みこんだ おとこ<br>
+ですな<pg1><pg2><clr>
+ここからが<br>
+ほんばん、<pg1><pg2><clr>
+きあいを いれて<br>
+いくのですぞ<pg1><pg2><clr>
+それでは さいごに<br>
+"おせるかべ"<br>
+について<pg1><pg2><clr>
+せつめいして<br>
+おきましょうかな<pg1><pg2><clr>
+これをみるで<br>
+あります<pg1><pg2><clr>
+<end>
+

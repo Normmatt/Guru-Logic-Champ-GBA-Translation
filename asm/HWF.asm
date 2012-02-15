@@ -39,6 +39,14 @@ here:
 	;add r1, #1
 	add r1, #2
 	
+.org 0x08003F2E
+	;adds    r0, r2, #0
+	;adds    r0, #0x2c
+	;ldrb    r0, [r0]
+
+	bl getWidth
+	nop
+	
 	;8010D7A stores 01 to 3000DBA when intro screen starts
 	;1 is hardcoded but used twice, store r4,r6 instead (they are 0)
 .org 0x08010D7A
@@ -111,6 +119,36 @@ here:
 .pool
 
 .org 0x083D6000
+getWidth:
+	;r0 and r1 are free
+	ldr r0, [sp]
+	
+getWidth_CheckSpace:
+	ldr r1, [space]
+	cmp r0, r1
+	bne getWidth_CheckApostrophe
+	
+	mov r0, #5
+	b getWidth_Exit
+	
+getWidth_CheckApostrophe:
+	ldr r1, [apostrophe]
+	cmp r0, r1
+	bne getWidth_Return
+	
+	mov r0, #5
+	b getWidth_Exit
+
+getWidth_Return:
+	mov r0, #8
+	
+getWidth_Exit:
+	bx lr
+	
+.align 4
+space: .dw 0x4081
+apostrophe: .dw 0x6681
+	
 HWF_Main:
 	lsl r1,r1,0x16		;original routine
 	lsr r1,r1,0x11

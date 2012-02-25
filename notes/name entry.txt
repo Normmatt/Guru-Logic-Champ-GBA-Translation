@@ -1,0 +1,123 @@
+todo:
+
+* title graphic
+* floating start graphic
+X make it start on english page
+X remove other pages
+X remove floating arrows
+  (alternately: add lowercase, if we decide to for whole game)
+* change KA*SU*MI cheat (* = heart)
+  * kasumi means mist, MIST*?
+  * RHDN* or ROMH*
+  * H*A*X (normmatt's idea)
+  * CHEAT
+* confirm menu
+
+8018070 - copies katakana tiles (decompresses)
+80180A0 - " but ABC
+8018042 - " hirigana
+8066758 - lz77decomp routine
+
+2001554 - timer for arrow switching
+
+8002662 - read keypad
+200c850 - key stuff
+200c85c - if certain key pressed (2 bytes)
+ I think this is B, 5a is A, 5e is select, etc
+ 200c86a = R, 200c86c = L
+  bp on read only breaks when these pressed
+  (yet value is zero...)
+
+8002696 R is pressed, only seems to be used in checking keys
+
+---
+
+80652D4 - run when screen changed (L or R)
+ r1 = 200 if L 100 if R
+
+3002a60 - seems to be important block of memory
+30005b0
+2002702 - 8017FF4 sets this to 1
+20015AC - if not 0, dec
+^ this controls which graphics it copies!
+
+yes, 20015AC: 00 = hirigana, 01 = katakana, 02 = ABC
+it's used to tell what letter to type, but changing it doesnt update graphics
+
+initialized to 00 when screen is loaded (nothing sets it)
+first read at 8017476
+ stores something in 200257C
+ changing it to 02 right here affects everything but tile graphics (eg. arrows, and what you type)
+
+6006C00 - tile graphics
+ initially copied at 80178E4
+ r0 = 8276494 (82779C4 = ABC graphics)
+  cant just change this, tilemap is all weird (same as if kana)
+ map at 6000800, ABC = 83848FC, kana = 8384420 (for both)
+  change 801793A
+
+---
+
+to make it start on ABC input:
+
+80178E0: ldr r0,=0x82779C4 ;change hirigana tiles to ABC tiles
+ (addr at 8017AD4)
+801793A: ldr r0,=0x83848FC ;same as above with tilemap
+ (addr at 8017B04)
+
+make it type ABC when 20015AC=00
+ 801814C - maybe just change to mov r2, 02
+  yes, this works fine
+
+disable L and R keys:
+ L - 8017FF8
+ R - 8018016
+ both - 8018028
+ called at 80652D4
+  8017FE0 = bl 80652D4
+   nopping doesnt disable (so wrong thing)
+note: some of changes so far broke arrows changing
+
+ 8018024 only breaks when changing pages to the right
+  add, where it increments page
+ 20017A2 important?
+ 8018008 r5 = 01 if switching right, -1 if left
+ 8018004 sub, where it decrements page
+ 8017FD8 where it sets r5
+ 8017FDC jumps if r5=0
+  make this always jump to disable page changing
+
+get rid of arrow graphics:
+
+OAM 7000010
+oam buffer at 200B8C8
+200B8D8
+ from 20029F4 (this addr changes) 20021A0
+  y-pos stored at 80018C4
+  x is in r7, 80018b2
+  80015AC, calls 8001650 = sprite setup routine
+   calls for every sprite
+   20029A4 = r0 for R arrow txt
+    initialized at 8017c58
+     maybe that's the wrong one? nop'ing this makes txt not show up but arrows still show up
+     8067780 - sprite shapes ?
+  this = (r0 in 8001650) + 50 (20021A0 = 2002150)
+   ^ change 4th byte to 0 disables sprite
+   to find this addr, bp 200B8D8, its r5
+
+2002484 (changes) - addr of L arrow txt
+ only written when initialized, never again
+20023E0 = L background (bp [200B8e0]!!)
+
+80015A4 - r4 is sprite, gets from r0
+ r0s: 200C030 200C178 200C1A0 200C1C8
+ (these dont change)
+ only 200C178 and 200C1C8 lead to L background sprite
+ (sprite base+40 = addr of next sprite in that list)
+ 200C178 points to L arrw txt sprite
+ 200C1C8 is floating start sprite
+
+find how 200C178 is initialized
+ 80014DE every frame
+
+there's gotta be a better way to find this... I hate debugging sprite drawing code. maybe use IDA?

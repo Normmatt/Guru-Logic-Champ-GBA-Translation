@@ -1,1 +1,3 @@
-cp rom/input.gba rom/output.gba
+cd rom
+copy input.gba output.gba /Y
+pause

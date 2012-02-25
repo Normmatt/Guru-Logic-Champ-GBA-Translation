@@ -29,12 +29,20 @@ Things that need to be hacked: (list in progress)
  * text (in atlas?)
  * menu items
  * title - change to Wakase's Lab?
+   * Rule -> Rules
+ * secret minigame (!) - champ ninja?
+
+* Champ ninja minigame
+ * logo
+ * instructions/text for all stages
 
 * Rescue select
  * nothing?
 
 * Stage select
  * puzzle name display
+ * scrolling text (when L/R pressed)
+  * not there when rescue complete
 
 * During puzzle
  * Menu
@@ -44,9 +52,30 @@ Things that need to be hacked: (list in progress)
  * puzzle name
 
 * Cutscenes
-
-(need to look at game without cheat)
+ * opening cutscene (when starting game)
+  * printed text
+  * (can be seen in wakase's lab/gallery)
+ * rescue cutscenes
+  * screen where it tells you what to do (text = graphics)
+  * misc. graphics in some cutscenes
+   * rescue 4 complete - "jam" label on jar
+   * sign in rescue 10 ending (is it even readable?)
+   * several in rescue 12 intro
+   * lots in 12 end
+  * spoken text in cutscenes 5intro, 8intro, 10end, 12intro, 12end
+ * rescue complete cutscene
+  * doesn't appear to be any text
+  * "champs rescued" = engrish?
 
 * Credits/end game
- * assuming these exist
- * add us for hacking
+ * part of rescue 12 ending cutscene
+ * add us for hacking, we need portrait graphics too
+
+---
+
+Where instructions appear:
+
+* When first starting game he says "Now it's time to use that pot"
+* Starting rescue 4 "hi there, nice to see you again" then holes and
+  rubber walls explanation
+  * Note: think I might have seen a small font glitch here (but not when replayed from rules screen) - the font was right on the window edge instead of spaced over 2

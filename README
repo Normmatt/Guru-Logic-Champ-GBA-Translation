@@ -1,6 +1,17 @@
-Guru Logic Champ v0.1
-----------------------------------
+Guru Logic Champ - English Translation
+--------------------------------------
 
 Credits
---------
-Normmatt and Spikeman for hacking the game.
+-------
+
+Normmatt - Hacking
+Spikeman - Hacking, translation and script editing
+Paul Jensen - Translation
+
+Instructions
+------------
+
+1. Place Japanese ROM in rom directory and rename it to input.gba
+2. Run build.bat, output.gba is the assembled translation
+
+Use clean.bat to copy input.gba to output.gba (always use output.gba for playing/testing)

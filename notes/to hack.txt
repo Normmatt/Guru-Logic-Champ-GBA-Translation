@@ -1,0 +1,52 @@
+Things that need to be hacked: (list in progress)
+-------------------------------------------------
+
+* Title screen
+ * Logo graphics
+
+* Battle screen
+ * Multiple things (need to do multiplayer testing)
+
+* File select
+ * Title graphic
+ * File selection
+ * Delete
+ * quicksave
+
+* Name entry screen
+ * Remove japanese and add lowercase
+  * No lowercase font
+ * Just disable japanese pages
+ * change cheat: All 12 levels open with 335 puzzles available. "ka heart su heart mi" is stored at 080695b4
+ * Title graphic
+ * Floating text (press start?)
+ * confirm message box
+
+* Saving screen
+ * just the "saving" graphic
+
+* Wakase's Labo
+ * text (in atlas?)
+ * menu items
+ * title - change to Wakase's Lab?
+
+* Rescue select
+ * nothing?
+
+* Stage select
+ * puzzle name display
+
+* During puzzle
+ * Menu
+  * confirm submenus
+
+* Puzzle clear
+ * puzzle name
+
+* Cutscenes
+
+(need to look at game without cheat)
+
+* Credits/end game
+ * assuming these exist
+ * add us for hacking

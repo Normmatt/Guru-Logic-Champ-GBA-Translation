@@ -22,6 +22,11 @@
 ; disable changing of pages
 .org 0x08017FDC
 	b 0x080180C4	; was beq if r5 = 0 (r5 = 1 or -1 if changing page)
+	
+; don't display L and R arrows - same routine set both arrows, so only need to change one
+.org 0x08017A9A
+	nop		;was bl 0x08001148 - create sprite
+	nop
 
 .close
 

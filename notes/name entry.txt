@@ -6,12 +6,20 @@ X make it start on english page
 X remove other pages
 X remove floating arrows
   (alternately: add lowercase, if we decide to for whole game)
+* change default name (chi-ya-n-pu = CHAMP)
 * change KA*SU*MI cheat (* = heart)
   * kasumi means mist, MIST*?
   * RHDN* or ROMH*
   * H*A*X (normmatt's idea)
   * CHEAT
+  * CHAMP - nope, this is the default name
 * confirm menu
+
+
+kasumi cheat:
+
+"ka heart su heart mi" is stored at 080695b4 (normmatt)
+
 
 8018070 - copies katakana tiles (decompresses)
 80180A0 - " but ABC
@@ -121,3 +129,168 @@ find how 200C178 is initialized
  80014DE every frame
 
 there's gotta be a better way to find this... I hate debugging sprite drawing code. maybe use IDA?
+
+8000FE8
+
+8001650 = display sprite? (noping gets rid of all sprites)
+
+sprite structure:
++00	command word? (02000000 = typical, 01000000 and 	00000000 go to another routiner)
++44	(used in 8000150c routine, 8001558 to be exact)
+	passed to 80014C0 routine (often 0x50?)
+	<<3 and added to 200BF48 (oam buffer)
+	oam buffer offset?
++48	x-pos
++4C	y-pos
++50-56	OAM attributes
++51	in [sp+10] (0x20 shifted to 00)
++52	0x4030
++53	in r10 - shape? (0x40 shifted to 04)
+	shape, used in OAM attrib 1
++74	(added to x-pos?)
++78	(added to y-pos?)
++8E	at 800183E, r7 = +48 - this (x-pos offset)
++90	y-pos offset
+
+at 8001886, r4 and r6 = width + height?
+
+at 80018BA masks +52 with 1111111000000000
+ keeps size/rotation stuff, uses new x-position
+
+200c848 - which oam sprite is being setup in 8001650
+
+8001650 = OamSetup - copies sprite from sprite table to oam buffer
+
+---
+
+if 8000FF4 is nop'd, sprites no longer update (but do display)
+
+8001588:
+200BF48-200C048 is a bunch of pointers to sprite data
+ (mainly zeros though, only the ones updated that frame?)
+it loops through that whole area and updates/displays those sprites
+
+matt: 800150C looks like it puts the pointers in that area
+800150C:
+ 200b880 10*4 byte table, linked list of sprites
+  entry 01 (200b884) = all the sprites but champ
+  entry 02 = champ
+ r4 = 2001480
+ whole first part of RAM involved (2000000, 2000150, etc)
+  2000150 = entry 01 sprites?
+   initialized 800118c
+  2001E1C (stored at 2000150) = data for it?
+
+linked list in question:
+2001E1C, 2001D78, 20018FC, 20019A0, 2001CD4, 2001C30, 2001A44, 2001B8C, 2001AE8, 20017B4, 2001710, 200166C, (20001EC)
+
+20018FC	L-arrow bg (from 2001D80 in prev sprite)
+20019A0 L-arrow txt
+2001CD4 R-arrow bg
+2001C30 R-arrow txt
+
+[2001D80]!!
+ 8001238
+  from 8001266 - seems to be responsible for clearing past sprites (and initializing new ones?)
+
+800122e: 200B8C0 - seems important
+
+8016DA0 calls 800127c
+ clears sprites, but only on name entry screen!
+ 20015B6 is incremented
+  palettes? (seems to be involved in blacking/fading)
+ was called from 80011ee
+  which just bx's to r1
+  from the 80011A0 call at 8000FF0
+ 8016DC6 - stores 8002539 in 3000EB0 (important?)
+ 3000BE8 is zero'd (4 bytes)
+ 3000EE8 is zero'd (1 byte)
+ r6+30 (2001524+30) is zero'd (3 bytes)
+
+20015b6 - (after being inc from 65 to 66 after above)
+ first read from at 80167FA (routine start 80167E4)
+ goes to 8016E04 when exactly 66
+  loads from r6+30 (r6 still 2001524), increments it
+ if change this to 66 on file select screen, everything changes to name entry screen, but sprites messed up
+ change it to 65, loads name entry perfectly
+
+80167E4 - involved with updating screen
+8016D80 - when 20015b6 = 65
+ 2001554 = old screen fading out timer
+
+note: I don't think sprites are loaded in 8016D80 :-/
+ if its never allowed to jump here, sprites still get loaded (screen is messed up though) - find where 65 gets written, it's probably in the same spot they get written
+
+8015BEA, 64 written to 20015b6
+ note: looks like 64/65/66 are involved in screen switching in general, but not just file select->name entry - also backwards, and to other parts of game
+
+8015BEA only on exit from file select BUT also to saved games (getting warmer?)
+ if 64 store is nop'd, screen does not change
+ r6=2002008 seems to control some stuff [value changes]
+  +4C - which file selected (set to 200C9AE)
+  +38 - 2001524 (adds 92 to get 20015b6)
+ 200C9AE - if 01 goes to name entry, if 00 goes into game
+  actually just which file you chose
+ 20015B8 is zerod (8015bf2)
+ this routine comes from 80011ee too
+  (just a bx routine)
+ note: if everything before this runs, but 8015BD8 is nop'd, screen doesn't change
+  note: this all has to do with 64 though, if that is nop'd and 64 manually set, screen still changes
+
+8016D3C = when 64
+ 30028D0
+ 8016D5e - call irrelevant, nop'd still changes screen
+
+note: 65 must just clear old graphics, because skip 65 (64->66) works with some added gibberish
+
+66 = most important?
+ 8016E04
+  stores 200C9AE (which file chosen) in 200C9A9
+ 200CA0C
+ 2001512 +=2 (at 8016E70)
+ calls 8001214 (which i had called clear_sprite)
+  if this nop'd, infinite loop, this = the magic?
+  8001232 (a few important strs?)
+   crashes if data here is zerod out
+   ditto if only first one is zerod
+    stores 2001e1c in 2001530
+    this read only once, at 8001152, and stored in 200B8C0
+
+200B8C0 is what matters?
+ seems to be written everytime a sprite created (and destroyed?)
+
+writes after 66 routine:
+
+2001524
+20015C8 at 8001154
+2002B90 - first enabled sprite (press start bubble)
+2001EC0 - L button BG
+200166C
+2001A44
+2001C30
+2001CD4
+20019A0
+2001710
+20017B4
+2001AE8
+2001B8C
+20018FC
+2001D78
+
+8001154 seems to be involved in initializing sprite!
+ called from 8017A12
+  struck gold? nop'ing this gets rid of start bubble
+
+rom addr loaded at 80011e8
+
+8017A96: left arrow initialize!
+ if r0 arg = 0, sprites still shown, but dont move (no x/y pos set, no animation)
+ (note this is called twice - both arrows?)
+ if r1 always=0, creates duplicate L arrow and text moves independantly (linkage value?)
+  if set to 2, makes R arrow txt move independently too
+   (amount of sprites to make follow that anim?)
+
+woot: just nop that call and arrows disappear!
+(that took waaay too long to find)
+
+8001148 = create sprite, btw

@@ -27,6 +27,14 @@
 .org 0x08017A9A
 	nop		;was bl 0x08001148 - create sprite
 	nop
+	
+; change default name to CHAMP (original was chanpu in katakana)
+.org 0x080695A0
+	.dh 0x6282, 0x6782, 0x6082, 0x6C82, 0x6F82
+	
+; change KASUMI cheat to "RHDN*" (* = heart)
+.org 0x080695B4
+	.dh 0x7182, 0x6782, 0x6382, 0x6D82, 0x9C81 ; RHDN* - perhaps this should be in a script file somewhere
 
 .close
 

@@ -16,11 +16,6 @@ X remove floating arrows
 * confirm menu
 
 
-kasumi cheat:
-
-"ka heart su heart mi" is stored at 080695b4 (normmatt)
-
-
 8018070 - copies katakana tiles (decompresses)
 80180A0 - " but ABC
 8018042 - " hirigana
@@ -294,3 +289,46 @@ woot: just nop that call and arrows disappear!
 (that took waaay too long to find)
 
 8001148 = create sprite, btw
+
+===
+
+kasumi cheat and default name (chanpu = CHAMP):
+
+"ka heart su heart mi" is stored at 080695b4 (normmatt)
+
+080695b4
+ copied to 3007E8C by 8067628
+ 3007E8C loaded at 801854C (ka)
+ 3002AD0 = name buffer
+
+replacement strings (in halfwords):
+CHAMP
+	0x6282, 0x6782, 0x6082, 0x6C82, 0x6F82
+RHDN<heart>
+	0x7182, 0x6782, 0x6382, 0x6D82, 0x9C81
+
+original str uses 9C81 for heart instead of 00C9?
+ break at 8003CA2 whenever char written, r0=actual value
+
+chanpu str to search for:
+6083 8383 9383 7683
+ (breaks at 8003CA2)
+ appears a few times in ROM:
+
+EBA
+695A0 (probably this one - closest to kasumi)
+6AC2C
+6AC5C
+6AE14
+6B0AA
+6B1DC
+6B3F8
+3890F2
+38912E
+
+yep, chanpu at 080695A0
+
+===
+
+bug to fix:
+ can't select some letters, like layout is still in japanese and theres a blank column (probably because it thinks page is 00, needs page to be 02 when changing letters)

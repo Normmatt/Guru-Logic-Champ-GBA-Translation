@@ -39,6 +39,10 @@
 .org 0x080695B4
 	.dh 0x7182, 0x6782, 0x6382, 0x6D82, 0x9C81 ; RHDN* - perhaps this should be in a script file somewhere
 	
+; import new graphics
+.org 0x08278540
+.incbin asm/bin/name_entry_gfx.lz77
+	
 
 .close
 

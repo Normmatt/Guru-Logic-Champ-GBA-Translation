@@ -41,7 +41,7 @@
 	
 ; import new graphics
 .org 0x08278540
-.incbin asm/bin/name_entry_gfx.lz77
+.incbin asm/bin/name_entry_obj.lz77
 	
 
 .close

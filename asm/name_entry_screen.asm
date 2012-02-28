@@ -15,9 +15,12 @@
 .org 0x08017B04
 	.dcd 0x083848FC ; change ldr at 801793A
 	
-; make it so we're always on the ABC screen as far as typing is concerned
-.org 0x0801814C
+; make it so game thinks we're always on ABC screen
+.org 0x0801814C	; this runs when entering a character
 	mov r2, 2	; hirigana = 0, katakana = 1, ABC = 2; was a ldrh
+	
+.org 0x08018338	; this runs when selecting characters
+	mov r0, 2
 	
 ; disable changing of pages
 .org 0x08017FDC
@@ -35,6 +38,7 @@
 ; change KASUMI cheat to "RHDN*" (* = heart)
 .org 0x080695B4
 	.dh 0x7182, 0x6782, 0x6382, 0x6D82, 0x9C81 ; RHDN* - perhaps this should be in a script file somewhere
+	
 
 .close
 

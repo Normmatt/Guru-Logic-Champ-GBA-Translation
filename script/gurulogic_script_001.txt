@@ -1,10 +1,8 @@
 // Define a TABLE
 #VAR(Table, TABLE)
-#VAR(engTable, TABLE)
 
 // Load and activate the table
 #ADDTBL("script/guru2.tbl", Table)
-#ADDTBL("script/guru.tbl", engTable)
 #ACTIVETBL(Table)
 
 // Setup GBA pointers and Pointer Table

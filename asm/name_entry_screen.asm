@@ -41,7 +41,9 @@
 	
 ; import new graphics
 .org 0x08278540
-.incbin asm/bin/name_entry_obj.lz77
+.incbin asm/bin/name_entry_obj.lz77		; rough, image will be finalized
+.org 0x082759C8
+.incbin asm/bin/name_entry_bg.lz77		; very rough image, just POC
 	
 
 .close

@@ -1,0 +1,137 @@
+// Define a TABLE
+#VAR(Table, TABLE)
+
+// Load and activate the table
+#ADDTBL("script/guru2.tbl", Table)
+#ACTIVETBL(Table)
+
+// Setup GBA pointers and Pointer Table
+#VAR(GBA, CUSTOMPOINTER)
+// Create our pointer type
+#CREATEPTR(GBA, "LINEAR", $-08000000, 32)
+
+#JMP($3FD000)
+
+//GAME NAME:		Guru Guru Logic Champ (GBA)
+
+//BLOCK #002 NAME:		Intro Cutscene (POINTER)
+
+//POINTER #0 @ $6B410 - STRING #0 @ $6B0A4
+
+#WRITE(GBA,$6B410)
+ここはチャンプたちが住む町。<$65><$65><blank>
+
+
+//POINTER #1 @ $6B414 - STRING #1 @ $6B0C4
+
+#WRITE(GBA,$6B414)
+いつものようになにごともなく、<$6C><$6C>平和な毎日がおくられていた…。<$65><$65><blank>
+
+
+//POINTER #2 @ $6B418 - STRING #2 @ $6B108
+
+#WRITE(GBA,$6B418)
+そんなある日、<$65><$65><blank>
+
+
+//POINTER #3 @ $6B41C - STRING #3 @ $6B11C
+
+#WRITE(GBA,$6B41C)
+この町の平和をおびやかすものが<$6C><$6C>あらわれたのです…。<$65><$65><blank>
+
+
+//POINTER #4 @ $6B420 - STRING #4 @ $6B154
+
+#WRITE(GBA,$6B420)
+ワシは回っているものを見るだけで<$6C><$6C>気持ちわるくなっちゃうのだ!<$65><$65><blank>
+
+
+//POINTER #5 @ $6B424 - STRING #5 @ $6B198
+
+#WRITE(GBA,$6B424)
+だからワシは、がんばって<$6C><$6C>いろんな はつめいをしたのだ!<$65><$65><blank>
+
+
+//POINTER #6 @ $6B428 - STRING #6 @ $6B1D4
+
+#WRITE(GBA,$6B428)
+テレビのチャンネルをボタンにかえたり、<$65><$65><blank>
+
+
+//POINTER #7 @ $6B42C - STRING #7 @ $6B200
+
+#WRITE(GBA,$6B42C)
+でんわもダイヤルからプッシュホンにした!<$65><$65><blank>
+
+
+//POINTER #8 @ $6B430 - STRING #8 @ $6B22C
+
+#WRITE(GBA,$6B430)
+ひこうきだって、プロペラから<$6C><$6C>ジェットにかえた!<$65><$65><blank>
+
+
+//POINTER #9 @ $6B434 - STRING #9 @ $6B260
+
+#WRITE(GBA,$6B434)
+しかし、町中にはまだまだ<$6C><$6C>回っているものがいっぱいあるではないか!<$65><$65><blank>
+
+
+//POINTER #10 @ $6B438 - STRING #10 @ $6B2A8
+
+#WRITE(GBA,$6B438)
+なにをボサッとしているのだ!<$6C><$6C>さっさといってこ～い!!<$65><$65><blank>
+
+
+//POINTER #11 @ $6B43C - STRING #11 @ $6B2E4
+
+#WRITE(GBA,$6B43C)
+イィ-ッ!!<$65><$65><blank>
+
+
+//POINTER #12 @ $6B440 - STRING #12 @ $6B2F4
+
+#WRITE(GBA,$6B440)
+キャ-! ワ-! ヒ-!<$65><$65><blank>
+
+
+//POINTER #13 @ $6B444 - STRING #13 @ $6B310
+
+#WRITE(GBA,$6B444)
+たいへんだ!町中のいろんなものが<$6C><$6C>回らなくなっちゃったよ～!<$65><$65><blank>
+
+
+//POINTER #14 @ $6B448 - STRING #14 @ $6B350
+
+#WRITE(GBA,$6B448)
+おちつくであります、少年よ。<$65><$65><blank>
+
+
+//POINTER #15 @ $6B44C - STRING #15 @ $6B370
+
+#WRITE(GBA,$6B44C)
+かれらに<$65><$65><blank>
+
+
+//POINTER #16 @ $6B450 - STRING #16 @ $6B37C
+
+#WRITE(GBA,$6B450)
+かれらにまかせるであります!<$65><$65><blank>
+
+
+//POINTER #17 @ $6B454 - STRING #17 @ $6B39C
+
+#WRITE(GBA,$6B454)
+あ、あれは…!<$65><$65><blank>
+
+
+//POINTER #18 @ $6B458 - STRING #18 @ $6B3B0
+
+#WRITE(GBA,$6B458)
+あふれんばかりのゆうじょうパワ-で<$6C><$6C>センセ-ショナルなツボをあやつる<$65><$65><blank>
+
+
+//POINTER #19 @ $6B45C - STRING #19 @ $6B3F8
+
+#WRITE(GBA,$6B45C)
+チャンプ兄弟に…!<$65><$65><blank>
+

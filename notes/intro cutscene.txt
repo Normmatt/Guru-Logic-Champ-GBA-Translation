@@ -23,3 +23,21 @@ occurs at 806B0C0
 6C6C seems like a short pause
 
 6565 is always followed by 0000, 0000 is never read by the game...
+
+pointer in 20019B4
+
+call checks if 6565 or 6c6c
+then 4081
+
+---
+
+finding why no english font:
+
+80244B0 is where it converts the SJIS character to the font number
+every english character returns F3
+which is the dot
+
+char<<10>>0e = char*4
+added to 82F0A44 = ptr table of RL compressed character data
+F3 ptr at 82F0E10
+ptr table only goes up to FF

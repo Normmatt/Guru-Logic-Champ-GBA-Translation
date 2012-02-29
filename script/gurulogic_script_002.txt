@@ -18,129 +18,130 @@
 
 //POINTER #0 @ $6B410 - STRING #0 @ $6B0A4
 
-#W32($6B410)
-ここはチャンプたちが住む町。<wait_end><blank>
+#WRITE(GBA,$6B410)
+//ここはチャンプたちが住む町。<wait_end><blank>
+HERE IS THE TOWN WHERE THE CHAMPS LIVE.<wait_end><blank>
 
 
 //POINTER #1 @ $6B414 - STRING #1 @ $6B0C4
 
-#W32($6B414)
+#WRITE(GBA,$6B414)
 いつものようになにごともなく、<wait_br>
 平和な毎日がおくられていた…。<wait_end><blank>
 
 
 //POINTER #2 @ $6B418 - STRING #2 @ $6B108
 
-#W32($6B418)
+#WRITE(GBA,$6B418)
 そんなある日、<wait_end><blank>
 
 
 //POINTER #3 @ $6B41C - STRING #3 @ $6B11C
 
-#W32($6B41C)
+#WRITE(GBA,$6B41C)
 この町の平和をおびやかすものが<wait_br>
 あらわれたのです…。<wait_end><blank>
 
 
 //POINTER #4 @ $6B420 - STRING #4 @ $6B154
 
-#W32($6B420)
+#WRITE(GBA,$6B420)
 ワシは回っているものを見るだけで<wait_br>
 気持ちわるくなっちゃうのだ!<wait_end><blank>
 
 
 //POINTER #5 @ $6B424 - STRING #5 @ $6B198
 
-#W32($6B424)
+#WRITE(GBA,$6B424)
 だからワシは、がんばって<wait_br>
 いろんな はつめいをしたのだ!<wait_end><blank>
 
 
 //POINTER #6 @ $6B428 - STRING #6 @ $6B1D4
 
-#W32($6B428)
+#WRITE(GBA,$6B428)
 テレビのチャンネルをボタンにかえたり、<wait_end><blank>
 
 
 //POINTER #7 @ $6B42C - STRING #7 @ $6B200
 
-#W32($6B42C)
+#WRITE(GBA,$6B42C)
 でんわもダイヤルからプッシュホンにした!<wait_end><blank>
 
 
 //POINTER #8 @ $6B430 - STRING #8 @ $6B22C
 
-#W32($6B430)
+#WRITE(GBA,$6B430)
 ひこうきだって、プロペラから<wait_br>
 ジェットにかえた!<wait_end><blank>
 
 
 //POINTER #9 @ $6B434 - STRING #9 @ $6B260
 
-#W32($6B434)
+#WRITE(GBA,$6B434)
 しかし、町中にはまだまだ<wait_br>
 回っているものがいっぱいあるではないか!<wait_end><blank>
 
 
 //POINTER #10 @ $6B438 - STRING #10 @ $6B2A8
 
-#W32($6B438)
+#WRITE(GBA,$6B438)
 なにをボサッとしているのだ!<wait_br>
 さっさといってこ～い!!<wait_end><blank>
 
 
 //POINTER #11 @ $6B43C - STRING #11 @ $6B2E4
 
-#W32($6B43C)
+#WRITE(GBA,$6B43C)
 イィ-ッ!!<wait_end><blank>
 
 
 //POINTER #12 @ $6B440 - STRING #12 @ $6B2F4
 
-#W32($6B440)
+#WRITE(GBA,$6B440)
 キャ-! ワ-! ヒ-!<wait_end><blank>
 
 
 //POINTER #13 @ $6B444 - STRING #13 @ $6B310
 
-#W32($6B444)
+#WRITE(GBA,$6B444)
 たいへんだ!町中のいろんなものが<wait_br>
 回らなくなっちゃったよ～!<wait_end><blank>
 
 
 //POINTER #14 @ $6B448 - STRING #14 @ $6B350
 
-#W32($6B448)
+#WRITE(GBA,$6B448)
 おちつくであります、少年よ。<wait_end><blank>
 
 
 //POINTER #15 @ $6B44C - STRING #15 @ $6B370
 
-#W32($6B44C)
+#WRITE(GBA,$6B44C)
 かれらに<wait_end><blank>
 
 
 //POINTER #16 @ $6B450 - STRING #16 @ $6B37C
 
-#W32($6B450)
+#WRITE(GBA,$6B450)
 かれらにまかせるであります!<wait_end><blank>
 
 
 //POINTER #17 @ $6B454 - STRING #17 @ $6B39C
 
-#W32($6B454)
+#WRITE(GBA,$6B454)
 あ、あれは…!<wait_end><blank>
 
 
 //POINTER #18 @ $6B458 - STRING #18 @ $6B3B0
 
-#W32($6B458)
+#WRITE(GBA,$6B458)
 あふれんばかりのゆうじょうパワ-で<wait_br>
 センセ-ショナルなツボをあやつる<wait_end><blank>
 
 
 //POINTER #19 @ $6B45C - STRING #19 @ $6B3F8
 
-#W32($6B45C)
+#WRITE(GBA,$6B45C)
 チャンプ兄弟に…!<wait_end><blank>
 

@@ -1,3 +1,17 @@
+// Define a TABLE
+#VAR(Table, TABLE)	
+
+// Load and activate the table
+#ADDTBL("script/guru2.tbl", Table)
+#ACTIVETBL(Table)
+
+// Setup GBA pointers and Pointer Table
+#VAR(GBA, CUSTOMPOINTER)
+// Create our pointer type
+#CREATEPTR(GBA, "LINEAR", $-08000000, 32)
+
+#JMP($3FD000)
+
 //GAME NAME:		Guru Guru Logic Champ (GBA)
 
 //BLOCK #002 NAME:		Intro Cutscene (POINTER)

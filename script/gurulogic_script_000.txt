@@ -19,42 +19,53 @@
 //BLOCK #000 NAME:		Wakase's Lab (POINTER)
 
 //POINTER #0 @ $DDC - STRING #0 @ $E04
-
 #WRITE(GBA,$DDC)
-<clr>  なにか ようで ありますか?<end>
+//<clr>  なにか ようで ありますか?<end>
+<clr>NEED SOMETHING?><end>
+
 //POINTER #1 @ $DE0 - STRING #1 @ $E2E
-
 #WRITE(GBA,$DE0)
-<clr> ゲ-ムのせつめいを おこないます<end>
+//<clr> ゲ-ムのせつめいを おこないます<end>
+<clr>EXPLAIN THE RULES<end>
+
 //POINTER #2 @ $DE4 - STRING #2 @ $E5A
-
 #WRITE(GBA,$DE4)
-<clr>いままでみた デモが みられるでしょう<end>
+//<clr>いままでみた デモが みられるでしょう<end>
+<clr>RE-VIEW CINEMATICS<end>
+
 //POINTER #3 @ $DE8 - STRING #3 @ $E8A
-
 #WRITE(GBA,$DE8)
-<clr>じょうけんを みたせば えらべるです<end>
+//<clr>じょうけんを みたせば えらべるです<end>
+<clr>YOU HAVEN'T UNLOCKED THIS YET<end>
+
 //POINTER #4 @ $DEC - STRING #4 @ $EB8
-
 #WRITE(GBA,$DEC)
-<clr>チャンプのようじんぼうが あそべます!<end>
+//<clr>チャンプのようじんぼうが あそべます!<end>
+<clr>PLAY CHAMP'S BODYGUARD!<end>
+
 //POINTER #5 @ $DF0 - STRING #5 @ $EE8
-
 #WRITE(GBA,$DF0)
-<clr> バケツリレ-が あそべます!<end>
+//<clr> バケツリレ-が あそべます!<end>
+<clr>PLAY BUCKET RELAY!<end>
+//note: not sure where this actually occurs in the game
+
 //POINTER #6 @ $DF4 - STRING #6 @ $F10
-
 #WRITE(GBA,$DF4)
-<clr> そうさほうほうを おしえましょう<end>
+//<clr> そうさほうほうを おしえましょう<end>
+<clr>I'LL TEACH YOU HOW TO PLAY<end>
+//literally: how to operate
+
 //POINTER #7 @ $DF8 - STRING #7 @ $F3C
-
 #WRITE(GBA,$DF8)
-<clr>あなと ゴムのかべを おしえましょう<end>
+//<clr>あなと ゴムのかべを おしえましょう<end>
+<clr>I'LL TELL YOU ABOUT HOLES AND RUBBER WALLS<end>
+
 //POINTER #8 @ $DFC - STRING #8 @ $F6A
-
 #WRITE(GBA,$DFC)
-<clr>  おせるかべを おしえましょう<end>
-//POINTER #9 @ $E00 - STRING #9 @ $F94
+//<clr>  おせるかべを おしえましょう<end>
+<clr>I'LL TELL YOU ABOUT PUSHABLE WALLS<end>
 
+//POINTER #9 @ $E00 - STRING #9 @ $F94
 #WRITE(GBA,$E00)
-<clr>   それでは ごきげんよう<end>
+//<clr>   それでは ごきげんよう<end>
+<clr>SO LONG FOR NOW!<end>

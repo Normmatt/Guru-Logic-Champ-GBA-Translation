@@ -4,6 +4,8 @@
 05FF=<clr>\n
 0FFF=<pg1>
 0100=<pg2>
+6565=<wait_end>
+6C6C=<wait_br>\n
 8140= 
 8141=ÅA
 8142=ÅB

@@ -1,0 +1,25 @@
+text is in OAM sprites:
+
+6015800
+ from 82EB052 (probably font), RLUnComp
+ at 80244C8
+ 
+80244B4, r0 is character being printed
+ call right before this converts r0 from SJS to simple char code
+
+802451A, r1 is char, loaded from r0
+
+first txt at 806B0A4
+
+---
+
+figuring out control codes:
+
+<$65><$65>:
+
+occurs at 806B0C0
+
+6565 seems like a long pause
+6C6C seems like a short pause
+
+6565 is always followed by 0000, 0000 is never read by the game...

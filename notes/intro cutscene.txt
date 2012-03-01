@@ -41,3 +41,29 @@ char<<10>>0e = char*4
 added to 82F0A44 = ptr table of RL compressed character data
 F3 ptr at 82F0E10
 ptr table only goes up to FF
+
+00 = a
+01 = i
+etc.
+(spaces aren't printed)
+
+note: all BG maps are used (bg1 in front), would probably be easier to just do OAM vwf, if it comes to that
+
+--- notes for font dumping ---
+test data:
+r0=82F09CC
+r1=6015800
+RLUncompVram
+
+  r0  Source Address, pointing to data as such:
+       Data header (32bit)
+         Bit 0-3   Reserved
+         Bit 4-7   Compressed type (must be 3 for run-length)
+         Bit 8-31  Size of decompressed data
+       Repeat below. Each Flag Byte followed by one or more Data Bytes.
+       Flag data (8bit)
+         Bit 0-6   Expanded Data Length (uncompressed N-1, compressed N-3)
+         Bit 7     Flag (0=uncompressed, 1=compressed)
+       Data Byte(s) - N uncompressed bytes, or 1 byte repeated N times
+
+good explanation of decompression: http://d.hatena.ne.jp/loveemu/20091002/nds_formats

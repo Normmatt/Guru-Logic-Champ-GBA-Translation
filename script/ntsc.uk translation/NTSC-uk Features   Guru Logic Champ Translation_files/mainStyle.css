@@ -1,0 +1,110 @@
+
+
+
+
+
+/*
+     FILE ARCHIVED ON 16:00:02 Nov 17, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 2:04:43 Feb 29, 2012.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+body {
+background-color: #EEEEEE;
+background-image: url(http://web.archive.org/web/20071117160002/http://www.ntsc-uk.com/newgfx/vert.png);
+background-repeat: no-repeat;
+background-position: right top;
+background-attachment: fixed 
+}
+
+.mojo {
+/* 
+background-image: url(http://web.archive.org/web/20071117160002/http://www.ntsc-uk.com/newgfx/dcweek.png);
+background-repeat: no-repeat;
+background-position: right top;
+*/
+border-top: 2px #000000 solid; 
+border-left: 2px #000000 solid;
+border-right: 2px #000000 solid;
+border-bottom: 2px #000000 solid;
+background-color: #FFFFFF;
+ }
+ 
+.minimojo {
+background-image: url(http://web.archive.org/web/20071117160002/http://www.ntsc-uk.com/newgfx/ntscmini.png);
+background-position: right bottom;
+background-repeat: no-repeat;
+border-top: 2px #000000 solid; 
+border-left: 0px #000000 solid;
+border-right: 0px #000000 solid;
+border-bottom: 1px #000000 solid;
+background-color: #EEEEEE;
+padding: 4px;
+}
+ 
+.minimojonbg {
+border-top: 2px #000000 solid; 
+border-left: 0px #000000 solid;
+border-right: 0px #000000 solid;
+border-bottom: 1px #000000 solid;
+background-color: #EEEEEE;
+ }
+ 
+.panelheading { font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #000000}
+
+.minititle { font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #000000; font-weight: bold}
+
+
+.paneltext { line-height: 20px; font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #000000}
+a.paneltext { text-decoration: none }
+a.paneltext:hover {  text-decoration: underline }
+
+.MainText {  font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #000000}
+a.MainText {  font-style: italic; text-decoration: none }
+a.MainText:hover {  text-decoration: underline }
+
+.ReviewText {  font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #000000; text-align: justify}
+.Links {  font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #333333; font-weight: bold}
+.ConsoleSm {  font-family: Geneva, Arial, Helvetica, san-serif; font-size: 11px; color: #333333; font-weight: bold}
+.FAQLinks {  font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #333333; font-weight: normal}
+
+
+a {  color: #000000; text-decoration: none}
+a:hover {  color: #000000; text-decoration: underline}
+a:visited { color: #000000;}
+
+.ImportHeadings {  color: #000000; font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold}
+.ImportHeadingsBig {  color: #000000; font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold}
+
+.ReviewHeadings {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #000000}
+.FirstPlayBig {  color: #000000; font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold}
+
+.mainmenu{ font-family: Arial, Helvetica, sans-serif; font-size : 12px; font-weight: bold; color : #000000;}
+a.mainmenu{ text-decoration: none; color : #000000;  }
+a.mainmenu:hover{ color : #FFFFFF; background-color: #000000}
+
+.mainmenusdc{ font-family: Arial, Helvetica, sans-serif; font-size : 12px; font-weight: bold; color : #000000; }
+a.mainmenusdc{ text-decoration: none; color : #000000;  }
+a.mainmenusdc:hover{ color : #FFFFFF; background-color: #ff8200}
+
+.mainmenugba{ font-family: Arial, Helvetica, sans-serif; font-size : 12px; font-weight: bold; color : #000000; }
+a.mainmenugba{ text-decoration: none; color : #000000;  }
+a.mainmenugba:hover{ color : #FFFFFF; background-color: #666666}
+
+.mainmenungc{ font-family: Arial, Helvetica, sans-serif; font-size : 12px; font-weight: bold; color : #000000; }
+a.mainmenungc{ text-decoration: none; color : #000000;  }
+a.mainmenungc:hover{ color : #FFFFFF; background-color: #7561a3}
+
+.mainmenups2{ font-family: Arial, Helvetica, sans-serif; font-size : 12px; font-weight: bold; color : #000000; }
+a.mainmenups2{ text-decoration: none; color : #000000;  }
+a.mainmenups2:hover{ color : #FFFFFF; background-color: #0018c9}
+
+.mainmenuxbo{ font-family: Arial, Helvetica, sans-serif; font-size : 12px; font-weight: bold; color : #000000; }
+a.mainmenuxbo{ text-decoration: none; color : #000000;  }
+a.mainmenuxbo:hover{ color : #FFFFFF; background-color: #006600}
+
+.mainmenunds{ font-family: Arial, Helvetica, sans-serif; font-size : 12px; font-weight: bold; color : #FF408D; }
+a.mainmenunds{ text-decoration: none; color : #FF408D;  }
+a.mainmenunds:hover{ color : #FFFFFF; background-color: #e5e5e5}

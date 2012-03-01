@@ -13,8 +13,8 @@ import Data.Bits
 import Numeric -- for showHex
 
 ptrTableAddr = 0x2F0A44
-fileIn = "test data/input.gba"
-fileOut = "test data/test_dump.gba"
+fileIn = "../../rom/input.gba"
+fileOut = "../../gfx/cutscene_font.gba"
 
 main :: IO ()
 main = do
@@ -26,10 +26,18 @@ main = do
     
 processFiles :: Handle -> Handle -> IO ()
 processFiles inh outh = do
-	addr <- getAddr 1 inh
-	hSeek inh AbsoluteSeek (fromIntegral $ addr .&. 0xFFFFFF)
-	bs <- B.hGetContents inh
-	B.hPut outh $ runPut (putLazyByteString (runGet doRLUncomp bs))
+	bs <- dumpFont 0 B.empty
+	B.hPut outh $ runPut (putLazyByteString bs)
+	putStrLn "Done."
+  where
+	dumpFont 0x100 bs = return bs -- dumped all characters, so return
+	dumpFont x  bs = do
+		addr <- getAddr x inh
+		hSeek inh AbsoluteSeek (fromIntegral $ addr .&. 0xFFFFFF)
+		--filebs <- B.hGetContents inh
+		filebs <- B.hGet inh 0x80 -- this is really hacky, but assume that compressed char won't be bigger than 0x80
+		dumpFont (x+1) (B.append bs $ runGet doRLUncomp filebs)
+		
 	
 getAddr char h = do
 	hSeek h AbsoluteSeek (ptrTableAddr + (char * 4))

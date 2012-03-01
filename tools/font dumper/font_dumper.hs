@@ -10,10 +10,10 @@ import Data.Binary
 import Data.Binary.Get as G
 import Data.Binary.Put
 import Data.Bits
---import Data.Int
+import Numeric -- for showHex
 
 ptrTableAddr = 0x2F0A44
-fileIn = "test data/a_comp.gba"
+fileIn = "test data/input.gba"
 fileOut = "test data/test_dump.gba"
 
 main :: IO ()
@@ -26,17 +26,20 @@ main = do
     
 processFiles :: Handle -> Handle -> IO ()
 processFiles inh outh = do
-	--hSeek inh AbsoluteSeek offset -- test data is in it's own file
+	addr <- getAddr 1 inh
+	hSeek inh AbsoluteSeek (fromIntegral $ addr .&. 0xFFFFFF)
 	bs <- B.hGetContents inh
 	B.hPut outh $ runPut (putLazyByteString (runGet doRLUncomp bs))
-  where
-	char = 0x00
-	offset = 0x2EACC4 -- hirigana A; make this load from ptr table
+	
+getAddr char h = do
+	hSeek h AbsoluteSeek (ptrTableAddr + (char * 4))
+	bs <- B.hGet h 4			-- read pointer into bytestring
+	return $ runGet (getWord32le) bs
 	
 doRLUncomp = do
 	(_, comp_type, decomp_size) <- getHeader
 	-- error if comp_type != 0x03
-	bs <- getAllChunks B.empty
+	bs <- getAllChunks (fromIntegral decomp_size) B.empty
 	return bs
 		
 getHeader = do
@@ -65,10 +68,11 @@ getChunk = do
 		let count = fromIntegral $ (ctrl .&. 0x7F) + 1
 		getLazyByteString count
 		
-getAllChunks bs = do
-	empty <- isEmpty
-	if empty
+getAllChunks len bs = do
+	--empty <- isEmpty
+	--if empty
+	if (B.length bs) == len
 		then return bs
 		else do
 			chunk <- getChunk
-			getAllChunks (B.append bs chunk)
+			getAllChunks len (B.append bs chunk)

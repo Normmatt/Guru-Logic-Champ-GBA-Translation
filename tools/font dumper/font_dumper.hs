@@ -1,5 +1,6 @@
 -- Font Dumper for Guru Logic Champ cutscenes
 -- code by Spikeman, based on Rhythm Tengoku font dumper
+-- create 2/29/2012
 
 -- Font is RL compressed, and decompressed by RLUncompVram BIOS function
 -- possible font values range from 0x00-FF, pointer table to compressed data at 0x082F0A44

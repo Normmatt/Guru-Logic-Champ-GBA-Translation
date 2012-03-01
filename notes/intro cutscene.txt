@@ -50,9 +50,6 @@ etc.
 note: all BG maps are used (bg1 in front), would probably be easier to just do OAM vwf, if it comes to that
 
 --- notes for font dumping ---
-test data:
-r0=82F09CC
-r1=6015800
 RLUncompVram
 
   r0  Source Address, pointing to data as such:
@@ -67,3 +64,10 @@ RLUncompVram
        Data Byte(s) - N uncompressed bytes, or 1 byte repeated N times
 
 good explanation of decompression: http://d.hatena.ne.jp/loveemu/20091002/nds_formats
+
+a character: 082EACC4, ends at: 82EAD2A
+
+--- font design notes ---
+
+characters are generally 12x12, one pixel of space at the top
+ some are smaller, none seem to be wider, some kanji are 13 high

@@ -1,5 +1,6 @@
 -- Font Dumper for Guru Logic Champ cutscenes
 -- code by Spikeman, created 2/29/2012
+module Main where
 
 import System.IO
 import qualified Data.ByteString.Lazy as B
@@ -9,25 +10,55 @@ import Data.Binary.Put
 import Data.Bits
 import Numeric
 import Data.List
+import System (getArgs)
 
+gfxStartAddr = 0x2EACC4
 ptrTableAddr = 0x2F0A44
-fileOut = "test data/test.gba" --"../../rom/input.gba"
-fileIn = "../../gfx/cutscene_font_eng.gba"
+--fileOut = "../../rom/output.gba"
+--fileIn = "../../gfx/cutscene_font_eng.gba"
 
 --hex :: B.ByteString -> String
 hex bs = '0':'x':(intercalate ", 0x" $ map (\x -> showHex x "") $ B.unpack bs)
 
 main = do
-    inh <- openBinaryFile fileIn ReadMode
-    outh <- openBinaryFile fileOut WriteMode
-    processFiles inh outh
-    hClose inh
-    hClose outh
+	args <- getArgs
+	if (length args) /= 2
+		then putStrLn "Usage: font_insert font_graphics.bin output_rom.gba"
+		else do
+			let fileIn = head args
+			let fileOut = head . tail $ args -- get second argument
+			inh <- openBinaryFile fileIn ReadMode
+			outh <- openBinaryFile fileOut ReadWriteMode --WriteMode deletes file before writing
+			processFiles inh outh
+			hClose inh
+			hClose outh
 	
 processFiles inh outh = do
 	bs <- B.hGetContents inh
-	B.hPut outh $ runPut $ putRLData $ runGet (rlCompress B.empty) (runGet getFontChar bs)
+	insertFont 0 bs gfxStartAddr
 	putStrLn "Done."
+  where
+	insertFont 0x100 _ _ = return () -- dumped all characters, so return
+	insertFont x bs ptr = do
+		hSeek outh AbsoluteSeek (tblAddr x)
+		B.hPut outh $ runPut $ putPointer ptr	-- write pointer
+		hSeek outh AbsoluteSeek (fromIntegral ptr)
+		let (char, nextbs, _) = runGetState getFontChar bs 0
+		let rldata = runGet (rlCompress B.empty) char
+		
+		size <- putAndGetSize rldata
+		
+		putStr $ showString "Wrote char " $ hex (B.pack [(fromIntegral x)])
+		putStr $ showString " at " $ showHex ptr ""
+		putStrLn $ showString "  size: " $ hex (B.pack [(fromIntegral $ adjustSize size)])
+		
+		--insertFont 0x100 bs ptr
+		insertFont (x+1) nextbs (ptr + (fromIntegral $ adjustSize size)) 
+	tblAddr x = ptrTableAddr + (x * 4)
+	adjustSize x = x + (4 - mod x 4) + 4 -- adjust size for 4 byte alignment, and add 4 bytes for header
+	putAndGetSize bs = do
+		B.hPut outh $ runPut $ putRLData bs	-- write compressed character
+		return $ B.length bs
 		
 rlCompress bs = do
 	empty <- isEmpty	
@@ -87,6 +118,9 @@ tryGet3 = do
 getFontChar = do
 	getLazyByteString 0x80	-- size of a character
 	
+putPointer addr = do
+	putWord32le (addr .|. 0x08000000)
+	
 putHeader = do
 	putWord8	0x30	-- bit 0-3 = 0 - reserved, bit 4-7 = 3 - RL compression
 	putWord8	0x80	-- decompressed size
@@ -95,4 +129,9 @@ putHeader = do
 	
 putRLData bs = do
 	putHeader
-	putLazyByteString bs
+	putLazyByteString $ pad bs -- make sure data is 4 byte aligned
+	
+-- for aligning data to 4 bytes
+pad bs | len > 0 = B.append bs $ B.replicate (4 - len) 0x00
+  where len = (mod . B.length) bs 4
+pad bs = bs

@@ -71,3 +71,22 @@ a character: 082EACC4, ends at: 82EAD2A
 
 characters are generally 12x12, one pixel of space at the top
  some are smaller, none seem to be wider, some kanji are 13 high
+
+font insert notes:
+
+82F0A44 - ptr tbl
+2eacc4, 2ead2c,2ead90,2eade4
+last char: 2f0a3c, ends at 2f0a43, right before ptr table
+(and there does appear to be data directly after ptr table, so new font must fit in old font's space, or be relocated)
+
+54,64,68 bytes appart (read: not regular)
+looks like there's a 00 00 after each
+ or just one 00 (before 2ead90) - maybe to make 4 byte aligned
+ yep, definitely 4 byte alignment, sometimes there is no padding
+
+total font size: 5D80
+
+confirmed: inserting old font is exactly the same data (same size)
+
+eng font size: 5D93 - will need to erase some japanese chars
+with chars erased: 4163, perfect

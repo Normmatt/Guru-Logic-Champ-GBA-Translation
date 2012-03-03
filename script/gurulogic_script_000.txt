@@ -21,7 +21,7 @@
 //POINTER #0 @ $DDC - STRING #0 @ $E04
 #WRITE(GBA,$DDC)
 //<clr>  ‚È‚É‚© ‚æ‚¤‚Å ‚ ‚è‚Ü‚·‚©?<end>
-<clr>NEED SOMETHING?><end>
+<clr>NEED SOMETHING?<end>
 
 //POINTER #1 @ $DE0 - STRING #1 @ $E2E
 #WRITE(GBA,$DE0)

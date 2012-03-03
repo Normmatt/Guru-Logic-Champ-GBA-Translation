@@ -90,3 +90,18 @@ confirmed: inserting old font is exactly the same data (same size)
 
 eng font size: 5D93 - will need to erase some japanese chars
 with chars erased: 4163, perfect
+
+---
+
+font is inserted, now need to adjust lookup table
+from above: 80244B0 is where it converts the SJIS character to the font number
+802438E: r0=8069F80
+
+8069F80 = lookup table (SJIS values of font in order)
+
+A=6082
+B=6182, etc.
+
+need to figure out what x-value each line is initiated to:
+ most are spaced so 16 characters max fit
+ filling the whole screen = 20 characters?

@@ -20,7 +20,9 @@
 
 #WRITE(GBA,$6B410)
 //‚±‚±‚Íƒ`ƒƒƒ“ƒv‚½‚¿‚ªZ‚Þ’¬B<wait_end><blank>
-HERE IS THE TOWN WHERE THE CHAMPS LIVE.<wait_end><blank>
+HERE IS THE TOWN<wait_br>
+WHERE THE CHAMPS<wait_br>
+LIVE.<wait_end><blank>
 
 
 //POINTER #1 @ $6B414 - STRING #1 @ $6B0C4

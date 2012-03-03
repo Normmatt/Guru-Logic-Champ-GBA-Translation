@@ -11,11 +11,13 @@ import Data.Bits
 import Numeric
 import Data.List
 import System (getArgs)
+import Control.Monad (when)
 
 gfxStartAddr = 0x2EACC4
 ptrTableAddr = 0x2F0A44
 --fileOut = "../../rom/output.gba"
 --fileIn = "../../gfx/cutscene_font_eng.gba"
+debug = False
 
 --hex :: B.ByteString -> String
 hex bs = '0':'x':(intercalate ", 0x" $ map (\x -> showHex x "") $ B.unpack bs)
@@ -48,9 +50,10 @@ processFiles inh outh = do
 		
 		size <- putAndGetSize rldata
 		
-		putStr $ showString "Wrote char " $ hex (B.pack [(fromIntegral x)])
-		putStr $ showString " at " $ showHex ptr ""
-		putStrLn $ showString "  size: " $ hex (B.pack [(fromIntegral $ adjustSize size)])
+		when debug $ do
+			putStr $ showString "Wrote char " $ hex (B.pack [(fromIntegral x)])
+			putStr $ showString " at " $ showHex ptr ""
+			putStrLn $ showString "  size: " $ hex (B.pack [(fromIntegral $ adjustSize size)])
 		
 		--insertFont 0x100 bs ptr
 		insertFont (x+1) nextbs (ptr + (fromIntegral $ adjustSize size)) 
